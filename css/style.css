@@ -1,11 +1,11 @@
 * {
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  box-sizing: border-box;  
 }
 
-body {
-  background-color: lightgray;
+body {      
+  background: #F3F5FC;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
@@ -13,14 +13,13 @@ body {
   width: 80vw;
   margin: auto;
   display: flex;
-  justify-content: center;
+  justify-content: center;  
 }
 
 .titulo {
   padding: 15px;
   width: 30vw;
   margin: auto;
-
 }
 
 .box {
@@ -34,13 +33,26 @@ body {
 }
 
 .btn {
-  border: 0;
-  color: white;
   font-weight: bold;
-  background-color: blue;
   padding: 10px;
   margin-top: 10px;
   border-radius: 0.5em;
+  background: #D8DFE8;
+  border: 1px solid #0A3871;
+  box-sizing: border-box;
+  border-radius: 24px;
+}
+
+.btn-desencriptar {
+  font-weight: bold;
+  color: #FFFFFF;
+  padding: 10px;
+  margin-top: 10px;
+  border-radius: 0.5em;
+  background: #0A3871;
+  border: 1px solid #D8DFE8;
+  box-sizing: border-box;
+  border-radius: 24px;
 }
 
 .text-input {

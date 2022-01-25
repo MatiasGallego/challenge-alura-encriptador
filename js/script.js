@@ -1,7 +1,6 @@
 var reglasEncriptar = [["e","enter"],["i","imes"],["a","ai"],["o","ober"],["u","ufat"]];
 var encriptar = true;
 var desencriptar = false;
-var patt = /^[a-z\s]+$/g;
 
 var botonEncriptar = document.querySelector("#btn-encriptar");
 botonEncriptar.addEventListener("click",function(event){
@@ -26,15 +25,21 @@ botonCopiar.addEventListener("click",function(){
         mensaje.select();
         document.execCommand("copy");
     }
+
+    document.querySelector("#input-texto").value = "";
+    document.querySelector('#msg').value = "";
+    alert("Mensaje Copiado");
 })
 
 function encriptarDesencriptar(encriptarDesencriptar){
+    var patt = /^[a-z\s]+$/g;
     var textoAEncriptar = document.querySelector("#input-texto").value;    
-    var valido = patt.test(textoAEncriptar);
-    var errorCarateres = document.querySelector("#mensaje-error");
-    if (valido){
+    var errorCarateres = document.querySelector("#mensaje-error");   
+    var textMensaje  = document.querySelector("#msg");
+
+    if (patt.test(textoAEncriptar)){
         var textoEncriptado = reglasEncriptarDesencriptar(textoAEncriptar,encriptarDesencriptar);
-        document.querySelector("#msg").value = textoEncriptado;   
+        textMensaje.value = textoEncriptado;   
         errorCarateres.classList.add("invisible");
     }else{
         if (textoAEncriptar.length == 0){
@@ -42,6 +47,7 @@ function encriptarDesencriptar(encriptarDesencriptar){
         }
         else{
             errorCarateres.textContent = "No ingrese acentos,caracteres especiales ni numeros";
+            textMensaje.value = "";
         }
         errorCarateres.classList.remove("invisible");
     }
