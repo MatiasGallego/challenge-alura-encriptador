@@ -15,6 +15,19 @@ botonDesencriptar.addEventListener("click",function(event){
     encriptarDesencriptar(desencriptar);    
 });
 
+var botonCopiar = document.querySelector("#btn-copy");
+botonCopiar.addEventListener("click",function(){
+
+    var mensaje = document.querySelector('#msg').value;
+
+    if(navigator.clipboard){
+        navigator.clipboard.writeText(mensaje)
+    }else{
+        mensaje.select();
+        document.execCommand("copy");
+    }
+})
+
 function encriptarDesencriptar(encriptarDesencriptar){
     var textoAEncriptar = document.querySelector("#input-texto").value;    
     var valido = patt.test(textoAEncriptar);
@@ -24,6 +37,12 @@ function encriptarDesencriptar(encriptarDesencriptar){
         document.querySelector("#msg").value = textoEncriptado;   
         errorCarateres.classList.add("invisible");
     }else{
+        if (textoAEncriptar.length == 0){
+            errorCarateres.textContent = "Ingrese texto";
+        }
+        else{
+            errorCarateres.textContent = "No ingrese acentos,caracteres especiales ni numeros";
+        }
         errorCarateres.classList.remove("invisible");
     }
 }
